@@ -30,7 +30,7 @@ export function getProfile() {
         dispatch(request());
         setTimeout(() => {
             dispatch(success(profile));
-            dropdownAlert.alertWithType("success", 'Good', 'Contacts was profile');
+            dropdownAlert.alertWithType("info", 'Good', 'Profile was profile');
         }, 2000);
     };
 }
