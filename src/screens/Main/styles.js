@@ -47,5 +47,15 @@ export const styles = StyleSheet.create({
         position:'absolute',
         alignSelf: 'center',
         bottom: 10
+    },
+    separator: {
+        height: 1,
+        width: "100%",
+        backgroundColor: "#CED0CE",
+    },
+    emptyListContainer: {
+        height: 200,
+        justifyContent:'center',
+        alignItems:'center',
     }
 });

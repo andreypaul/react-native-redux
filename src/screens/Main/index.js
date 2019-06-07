@@ -11,8 +11,8 @@ import {
     TouchableOpacity,
     Dimensions
 } from 'react-native';
-import { styles } from "./styles";
-import { UserList } from "../../components/UserList";
+import {styles} from "./styles";
+import {UserList} from "../../components/UserList";
 
 export default class Main extends Component {
     state = {
@@ -21,6 +21,20 @@ export default class Main extends Component {
 
     componentDidMount() {
         this.props.getContacts();
+    }
+
+    renderSeparator = () => {
+        return (
+            <View style={styles.separator}/>
+        );
+    };
+
+    renderEmptyContactsList = () => {
+        return (
+            <View style={styles.emptyListContainer}>
+                <Text>Contacts list is empty...</Text>
+            </View>
+        );
     }
 
     render() {
@@ -37,6 +51,8 @@ export default class Main extends Component {
                         />
                     }
                     renderItem={({item}) => <UserList item={item}/>}
+                    ItemSeparatorComponent={this.renderSeparator}
+                    ListEmptyComponent={this.renderEmptyContactsList}
                 />
                 <TouchableOpacity
                     style={styles.footerButton}
