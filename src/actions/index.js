@@ -5,7 +5,11 @@ import {
 
     GET_CONTACTS_REQUEST,
     GET_CONTACTS_SUCCESS,
-    GET_CONTACTS_FAILURE
+    GET_CONTACTS_FAILURE,
+
+    UPDATE_PROFILE_REQUEST,
+    UPDATE_PROFILE_SUCCESS,
+    UPDATE_PROFILE_FAILURE
 } from "../actionsConsts";
 import userApi from "../api/client";
 import {user} from "./../consts";
@@ -33,6 +37,34 @@ export function getProfile() {
             dropdownAlert.alertWithType("info", 'Good', 'Profile was profile');
         }, 2000);
     };
+}
+
+export const updateProfile = data => {
+
+    const request = () => {
+        return {type: UPDATE_PROFILE_REQUEST}
+    }
+
+    const success = updatedProfile => {
+        return {type: UPDATE_PROFILE_SUCCESS, updatedProfile}
+    }
+
+    const failure = (e) => {
+        return {type: UPDATE_PROFILE_FAILURE, e}
+    }
+
+    return async dispatch => {
+        dispatch(request());
+        try {
+            let updatedProfile = await userApi.updateProfile(data);
+            dispatch(success(updatedProfile));
+            dropdownAlert.alertWithType("success", 'Good', 'Profile was updated!!!');
+        }
+        catch (e) {
+            dispatch(failure(e));
+            dropdownAlert.alertWithType("error", 'Error', e);
+        }
+    }
 }
 
 export function getContacts() {

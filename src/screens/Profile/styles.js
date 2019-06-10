@@ -12,4 +12,13 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  input: {
+    color: "white",
+    paddingLeft: 10,
+    backgroundColor: "tomato",
+    width: 300,
+    height: 50,
+    borderRadius: 10,
+    marginVertical: 5
+  }
 });

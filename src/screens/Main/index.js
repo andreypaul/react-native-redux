@@ -13,10 +13,11 @@ import {
 } from 'react-native';
 import {styles} from "./styles";
 import {UserList} from "../../components/UserList";
+import axios from "axios";
 
 export default class Main extends Component {
     state = {
-        modalVisible: false
+        modalVisible: false,
     }
 
     componentDidMount() {
@@ -36,6 +37,7 @@ export default class Main extends Component {
             </View>
         );
     }
+
 
     render() {
         return (
