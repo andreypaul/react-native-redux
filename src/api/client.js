@@ -5,7 +5,7 @@ class userApiImpl {
     clientID = '5ce6b9a10adb8e0014a6f3c6'
     baseUrl = `https://${this.clientID}.mockapi.io/api/v1`;
     usersRoute = `${this.baseUrl}/users`;
-    updateProfileRoute = `${this.baseUrl}/profile`;
+    updateProfileRoute = `${this.baseUrl}/users`;
 
     getUsers = async () => {
         let response;

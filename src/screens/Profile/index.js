@@ -15,18 +15,46 @@ export default class Profile extends Component {
     }
 
     onChangeFirstName = firstName => {
-        this.setState({user: {...this.state.user,firstName: firstName}},()=>
-            this.setState({user: {...this.state.user, name: this.state.user.firstName+ " " + this.state.user.lastName}}));
+        this.setState({
+                user: {
+                    ...this.state.user,
+                    firstName: firstName
+                }
+            },
+            () =>
+                this.setState({
+                    user: {
+                        ...this.state.user,
+                        name: this.state.user.firstName + " " + this.state.user.lastName
+                    }
+                })
+        );
     }
 
     onChangeLastName = lastName => {
-        this.setState({user: {...this.state.user,lastName: lastName}},()=>
-            this.setState({user: {...this.state.user, name: this.state.user.firstName + " " + this.state.user.lastName}})
+        this.setState({
+                user: {
+                    ...this.state.user,
+                    lastName: lastName
+                }
+            }, () =>
+                this.setState(
+                    {
+                        user: {
+                            ...this.state.user,
+                            name: this.state.user.firstName + " " + this.state.user.lastName
+                        }
+                    })
         );
     }
 
     onChangeEmail = email => {
-        this.setState({user: {...this.state.user,email: email}});
+        this.setState({
+            user: {
+                ...this.state.user,
+                email: email
+            }
+        });
     }
 
     render() {
